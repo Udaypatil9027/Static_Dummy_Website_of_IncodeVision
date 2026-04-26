@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>IncodeVision - Software Training & Internships</title>
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+ <nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo1.png" alt="IncodeVision" style="width: 200px;">
+      <span class="logo-text">IncodeVision</span>
+    </a>
+
+    <div class="nav-menu-wrapper">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="verify.html" class="active">Verify</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-action">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2dEgize7jvBvzToifJGO6LX6kTXSYK8UEjQz7DuTjuhGM4A/viewform" 
+   class="btn-apply" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   Apply
+</a>
+    </div>
+
+    <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-shapes">
+      <div class="shape s1"></div>
+      <div class="shape s2"></div>
+      <div class="shape s3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-badge"><i class="fas fa-star"></i> Trusted by 1000+ Students</div>
+      <h1>Launch Your <span class="gradient-text">Tech Career</span><br/>With Real Experience</h1>
+      <p>Join IncodeVision's industry-ready internship programs in software development, web design, data science, and more. Learn by building real projects.</p>
+      <div class="hero-buttons">
+        <a href="internships.html" class="btn-primary">Explore Internships <i class="fas fa-arrow-right"></i></a>
+        <a href="verify.html" class="btn-secondary"><i class="fas fa-shield-check"></i> Verify Certificate</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num">1000+</span><span class="stat-label">Students Trained</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Courses & Projects</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">98%</span><span class="stat-label">Placement Rate</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="code-card">
+        <div class="code-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span><span style="margin-left:10px;font-size:12px;color:#888">main.js</span></div>
+        <div class="code-body">
+          <div class="code-line"><span class="kw">const</span> <span class="fn">future</span> = <span class="str">'yours'</span>;</div>
+          <div class="code-line"><span class="kw">function</span> <span class="fn">launchCareer</span>() {</div>
+          <div class="code-line pl"><span class="fn">learnSkills</span>();</div>
+          <div class="code-line pl"><span class="fn">buildProjects</span>();</div>
+          <div class="code-line pl"><span class="kw">return</span> <span class="str">'success'</span>;</div>
+          <div class="code-line">}</div>
+          <div class="code-line blink"><span class="fn">launchCareer</span>(); <span class="cursor">|</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Why Choose Us</p>
+        <h2>Everything You Need to <span class="gradient-text">Succeed</span></h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Live Project Training</h3>
+          <p>Work on real industry projects with mentorship from experienced professionals.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-certificate"></i></div>
+          <h3>Verified Certificates</h3>
+          <p>Receive certificates with unique IDs that employers can verify online instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-users"></i></div>
+          <h3>Expert Mentors</h3>
+          <p>Learn from industry veterans with hands-on experience in top tech companies.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Career Support</h3>
+          <p>Get resume reviews, mock interviews and placement assistance after completion.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-clock"></i></div>
+          <h3>Flexible Duration</h3>
+          <p>Choose from 1-month, 2-month, or 3-month internship programs to suit your schedule.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Trusted Platform</h3>
+          <p>Blockchain-backed certificate verification trusted by 500+ companies nationwide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DOMAINS -->
+  <section class="domains">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Our Programs</p>
+        <h2>Top <span class="gradient-text">Internship Domains</span></h2>
+      </div>
+      <div class="domains-grid">
+        <div class="domain-card">
+          <i class="fab fa-python"></i>
+          <h4>Python Development</h4>
+          <span>1–3 Months</span>
+        </div>
+        <div class="domain-card">
+          <i class="fab fa-react"></i>
+          <h4>React / Frontend</h4>
+          <span>1–3 Months</span>
+        </div>
+        <div class="domain-card">
+          <i class="fas fa-database"></i>
+          <h4>Data Science & ML</h4>
+          <span>2–3 Months</span>
+        </div>
+        <div class="domain-card">
+          <i class="fas fa-mobile-alt"></i>
+          <h4>Android Development</h4>
+          <span>1–3 Months</span>
+        </div>
+        <div class="domain-card">
+          <i class="fas fa-cloud"></i>
+          <h4>Cloud & DevOps</h4>
+          <span>2–3 Months</span>
+        </div>
+        <div class="domain-card">
+          <i class="fas fa-shield-alt"></i>
+          <h4>Cybersecurity</h4>
+          <span>1–3 Months</span>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:2.5rem">
+        <a href="internships.html" class="btn-primary">View All Programs <i class="fas fa-arrow-right"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Ready to Start Your Journey?</h2>
+      <p>Apply now for the next batch starting soon. Limited seats available.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2dEgize7jvBvzToifJGO6LX6kTXSYK8UEjQz7DuTjuhGM4A/viewform?pli=1" target="_blank" class="btn-white">Apply Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:1rem">
+            <span class="logo-icon"><i class="fas fa-code"></i></span>
+            <span class="logo-text">Incode<span class="accent">Vision</span></span>
+          </div>
+          <p>Empowering students with industry-ready skills through real-world internship programs.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="internships.html">Internships</a>
+          <a href="verify.html">Verify Certificate</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-links">
+          <h4>Contact</h4>
+          <p><i class="fas fa-envelope"></i> info@incodevision.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> India</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 IncodeVision. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
