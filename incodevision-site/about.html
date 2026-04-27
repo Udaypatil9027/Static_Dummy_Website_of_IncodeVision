@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>IncodeVision - Software Training & Internships</title>
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo1.png" alt="IncodeVision" style="width: 200px;">
+      <span class="logo-text">IncodeVision</span>
+    </a>
+
+    <div class="nav-menu-wrapper">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="internships.html">Internships</a></li>
+        <li><a href="verify.html" class="active">Verify</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <div class="nav-action">
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2dEgize7jvBvzToifJGO6LX6kTXSYK8UEjQz7DuTjuhGM4A/viewform" 
+   class="btn-apply" 
+   target="_blank" 
+   rel="noopener noreferrer">
+   Apply
+</a>
+    </div>
+
+    <button class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <p class="section-tag">Who We Are</p>
+      <h1>About <span class="gradient-text">IncodeVision</span></h1>
+      <p>We bridge the gap between education and industry by providing students with hands-on experience in cutting-edge technologies.</p>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="about-mission">
+    <div class="container two-col">
+      <div class="about-text">
+        <p class="section-tag">Our Mission</p>
+        <h2>Building Tomorrow's <span class="gradient-text">Tech Leaders</span></h2>
+        <p>IncodeVision was founded with a single mission: to make quality tech training accessible to every student in India. We believe every passionate learner deserves real-world exposure before entering the workforce.</p>
+        <p>Our structured internship programs are carefully designed to mirror the actual workflows of software companies — from agile sprints to code reviews to deployment pipelines.</p>
+        <div class="about-checks">
+          <div class="check-item"><i class="fas fa-check-circle"></i> Industry-aligned curriculum</div>
+          <div class="check-item"><i class="fas fa-check-circle"></i> Hands-on live project work</div>
+          <div class="check-item"><i class="fas fa-check-circle"></i> Government-recognized certificates</div>
+          <div class="check-item"><i class="fas fa-check-circle"></i> Post-internship career support</div>
+        </div>
+      </div>
+      <div class="about-image-block">
+        <div class="about-img-card">
+          <div class="img-stat-overlay top-right">
+            <span class="big-num">1000+</span>
+            <span>Students Trained</span>
+          </div>
+          <div class="img-stat-overlay bottom-left">
+            <span class="big-num">50+</span>
+            <span>Projects Delivered</span>
+          </div>
+          <div class="img-placeholder">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUES -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Our Values</p>
+        <h2>What <span class="gradient-text">Drives Us</span></h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-num">01</div>
+          <h3>Excellence</h3>
+          <p>We hold ourselves to the highest standards in curriculum design, mentorship, and student outcomes.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">02</div>
+          <h3>Innovation</h3>
+          <p>Constantly updating our programs to reflect the latest technologies and industry demands.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">03</div>
+          <h3>Integrity</h3>
+          <p>Transparent processes, honest feedback, and verifiable achievements that mean something.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-num">04</div>
+          <h3>Inclusion</h3>
+          <p>Making tech education accessible to students from all backgrounds and regions of India.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="team-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-tag">Our Team</p>
+        <h2>Meet the <span class="gradient-text">Experts</span></h2>
+      </div>
+      <div class="team-grid">
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+          <h4>Founder & CEO</h4>
+          <p>IncodeVision</p>
+          <div class="team-socials">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h4>Lead Mentor – Full Stack</h4>
+          <p>10+ yrs experience</p>
+          <div class="team-socials">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+        <div class="team-card">
+          <div class="team-avatar"><i class="fas fa-brain"></i></div>
+          <h4>Data Science Lead</h4>
+          <p>ML & AI specialist</p>
+          <div class="team-socials">
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="container">
+      <h2>Join the IncodeVision Family</h2>
+      <p>Be part of a growing community of skilled tech professionals.</p>
+      <a href="https://docs.google.com/forms/d/e/1FAIpQLSc2dEgize7jvBvzToifJGO6LX6kTXSYK8UEjQz7DuTjuhGM4A/viewform?pli=1" target="_blank" class="btn-white">Apply Now <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+
+   <style>
+  .footer {
+    background-color: #0b132b; /* Dark navy background */
+    color: #ffffff;
+    padding: 60px 5% 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-brand img { width: 150px; margin-bottom: 15px; }
+  .footer-brand p { color: #94a3b8; line-height: 1.6; font-size: 0.9rem; max-width: 350px; }
+  .social-icons { margin-top: 20px; display: flex; gap: 10px; }
+  .social-icons a { color: white; background: #1e293b; padding: 8px 12px; border-radius: 6px; text-decoration: none; }
+  
+  .footer-links h4, .footer-contact h4 { font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 20px; color: #ffffff; }
+  .footer-links ul { list-style: none; padding: 0; }
+  .footer-links li { margin-bottom: 12px; color: #94a3b8; font-size: 0.9rem; cursor: pointer; }
+  
+  .footer-contact p { color: #94a3b8; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+  
+  .footer-bottom { 
+    border-top: 1px solid #1e293b; 
+    margin-top: 40px; 
+    padding-top: 20px; 
+    text-align: left; 
+    font-size: 0.8rem; 
+    color: #475569;
+    max-width: 1200px;
+    margin: 40px auto 0;
+  }
+</style>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="images/logo1.png" alt="IncodeVision">
+      <p>Empowering the next generation of developers through hands-on internships, practical projects, and industry-focused training programs.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Internships</li>
+        <li>Verify Certificate</li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>CONTACT</h4>
+      <p><i class="fas fa-envelope"></i> contact@incodevision.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 IncodeVision. All rights reserved.
+  </div>
+</footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

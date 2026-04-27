@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IncodeVision - Certificate Verification</title>
+
+  <link rel="icon" type="image/png" href="images/logo.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet"/>
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
+  <style>
+    :root {
+      --primary-dark: #0b132b;
+      --accent-blue: #4361ee;
+      --success-green: #10b981;
+      --text-main: #1e293b;
+      --text-muted: #64748b;
+      --bg-light: #f8fafc;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-light); color: var(--text-main); }
+
+    /* --- Navbar --- */
+    .navbar { background: white; padding: 1rem 5%; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; font-family: 'Sora', sans-serif; font-weight: 800; color: var(--primary-dark); gap: 10px; }
+    .nav-links { list-style: none; display: flex; gap: 2rem; }
+    .nav-links a { text-decoration: none; color: var(--text-muted); font-weight: 500; font-size: 0.95rem; }
+    .nav-links a.active { color: var(--accent-blue); background: #f0f3ff; padding: 5px 15px; border-radius: 20px; }
+    .btn-apply { background: var(--primary-dark); color: white; padding: 10px 25px; border-radius: 20px; text-decoration: none; font-weight: 700; }
+
+    /* --- Hero Section --- */
+    .hero { text-align: center; padding: 60px 20px; }
+    .hero h1 { font-family: 'Sora', sans-serif; font-size: 3rem; font-weight: 800; margin-bottom: 15px; }
+    .gradient-text { background: linear-gradient(90deg, #4361ee, #7209b7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .hero p { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto; }
+
+    /* --- Verification Card --- */
+    .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+    .search-card { background: white; padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); margin-bottom: 30px; }
+    .input-label { display: block; font-size: 0.75rem; font-weight: 700; color: var(--text-muted); margin-bottom: 10px; }
+    
+    .input-row { display: flex; gap: 10px; align-items: center; }
+    .input-group { position: relative; flex: 2; }
+    .input-group i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: #cbd5e1; }
+    .input-group input { width: 100%; padding: 12px 15px 12px 45px; border: 1px solid #e2e8f0; border-radius: 10px; font-size: 0.95rem; outline: none; }
+
+    .btn-verify { flex: 1; background: var(--primary-dark); color: white; border: none; padding: 12px; border-radius: 10px; font-weight: 700; cursor: pointer; }
+    .btn-reset { background: white; border: 1px solid #e2e8f0; padding: 12px 20px; border-radius: 10px; color: var(--text-muted); cursor: pointer; }
+
+    /* --- Result Area (Exact Match) --- */
+    .result-outer { background: #eefdf6; border: 1px solid #c6f6d5; border-radius: 25px; padding: 25px; margin-top: 20px; }
+    .result-header { color: #065f46; font-weight: 700; display: flex; align-items: center; gap: 10px; font-size: 1.2rem; margin-bottom: 8px; }
+    .result-subheader { color: #059669; font-size: 0.85rem; font-weight: 500; margin-bottom: 25px; }
+
+    .inner-white-card { background: white; border-radius: 15px; padding: 30px; }
+    .official-tag { font-size: 0.65rem; font-weight: 800; color: #94a3b8; letter-spacing: 1px; margin-bottom: 20px; border-bottom: 1px solid #f1f5f9; padding-bottom: 10px; }
+    
+    .data-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; }
+    .data-item label { display: block; font-size: 0.7rem; font-weight: 700; color: #94a3b8; margin-bottom: 5px; }
+    .data-item span { font-weight: 700; font-size: 0.95rem; color: var(--primary-dark); }
+    .id-highlight { background: #f8fafc; padding: 4px 10px; border-radius: 5px; border: 1px solid #e2e8f0; }
+
+    .verified-by { margin-top: 30px; padding-top: 15px; border-top: 1px solid #f1f5f9; }
+
+    /* --- About Section --- */
+    .about-section { text-align: center; padding: 80px 20px; }
+    .about-section h2 { font-family: 'Sora', sans-serif; font-size: 2rem; margin-bottom: 50px; }
+    .about-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; max-width: 1100px; margin: 0 auto; }
+    .about-box { background: #fcfcfc; padding: 40px 30px; border-radius: 15px; border: 1px solid #f1f5f9; transition: 0.3s; }
+    .about-box:hover { background: white; box-shadow: 0 10px 20px rgba(0,0,0,0.03); }
+    .icon-circle { width: 50px; height: 50px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 1.2rem; }
+    .blue { background: #eff6ff; color: #3b82f6; }
+    .green { background: #f0fdf4; color: #22c55e; }
+    .purple { background: #faf5ff; color: #a855f7; }
+    .about-box h3 { font-size: 1.1rem; margin-bottom: 10px; }
+    .about-box p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+    /* Loader */
+    .loader { border: 3px solid #f3f3f3; border-top: 3px solid var(--accent-blue); border-radius: 50%; width: 30px; height: 30px; animation: spin 1s linear infinite; margin: 20px auto; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="#" class="nav-logo">
+      <img src="images/logo1.png" alt="Logo" style="height: 35px;">
+      IncodeVision
+    </a>
+    <ul class="nav-links">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Internships</a></li>
+      <li><a href="#" class="active">Verify</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+    <a href="#" class="btn-apply">Apply</a>
+  </nav>
+
+  <section class="hero">
+    <h1>Certificate <span class="gradient-text">Verification</span></h1>
+    <p>Verify the authenticity of IncodeVision certificates and internship completion records instantly.</p>
+  </section>
+
+  <div class="container">
+    <div class="search-card">
+      <label class="input-label">Student ID (STD ID)</label>
+      <div class="input-row">
+        <div class="input-group">
+          <i class="fas fa-search"></i>
+          <input type="text" id="studentId" placeholder="ICV/MAR26/45924" />
+        </div>
+        <button class="btn-verify" onclick="handleVerify()">Verify Certificate</button>
+        <button class="btn-reset" onclick="window.location.reload()">Reset</button>
+      </div>
+    </div>
+
+    <div id="resultArea">
+      </div>
+  </div>
+
+  <section class="about-section">
+    <h2>About Our Certificates</h2>
+    <div class="about-grid">
+      <div class="about-box">
+        <div class="icon-circle blue"><i class="fas fa-shield-alt"></i></div>
+        <h3>Secure & Verified</h3>
+        <p>All certificates are digitally signed and stored permanently in our secure database.</p>
+      </div>
+      <div class="about-box">
+        <div class="icon-circle green"><i class="fas fa-check-circle"></i></div>
+        <h3>Industry Recognized</h3>
+        <p>Our completion records and certificates are valued by top technology companies.</p>
+      </div>
+      <div class="about-box">
+        <div class="icon-circle purple"><i class="fas fa-search"></i></div>
+        <h3>Easy Verification</h3>
+        <p>Recruiters can instantly verify student credentials anytime using our online portal.</p>
+      </div>
+    </div>
+  </section>
+<script>
+</script>
+  <script>
+const mockData = {
+  "ICV/APR26/55567": {
+    name: "Uday Pravin Patil",
+    domain: "Data Science",
+    college: "R.C.Patel Institute Of Technology, Shirpur",
+    start: "April 01, 2026",
+    end: "April 30, 2026"
+  },
+  "ICV/APR26/75110": {
+    name: "Kalpesh Kishor Patil",
+    domain: "Frontend Development",
+    college: "R.C.Patel Institute Of Technology, Shirpur",
+    start: "April 01, 2026",
+    end: "April 30, 2026"
+  }
+};
+
+// 🔥 COMMON FUNCTION (USED BY BOTH)
+function renderResult(id) {
+  const resultArea = document.getElementById('resultArea');
+  const student = mockData[id];
+
+  if (student) {
+    resultArea.innerHTML = `
+      <div class="result-outer">
+        <div class="result-header">
+          <i class="fas fa-check-circle"></i> Certificate Verified
+        </div>
+
+        <p class="result-subheader">
+          This certificate is authentic and officially issued by IncodeVision Technologies.
+        </p>
+        
+        <div class="inner-white-card">
+          <div class="official-tag">OFFICIAL RECORD DETAILS</div>
+
+          <div class="data-grid">
+            <div class="data-item"><label>STD ID</label><span class="id-highlight">${id}</span></div>
+            <div class="data-item"><label>Name</label><span>${student.name}</span></div>
+            <div class="data-item"><label>Domain</label><span>${student.domain}</span></div>
+            <div class="data-item"><label>College</label><span>${student.college}</span></div>
+            <div class="data-item"><label>Start Date</label><span>${student.start}</span></div>
+            <div class="data-item"><label>End Date</label><span>${student.end}</span></div>
+          </div>
+
+          <div class="verified-by">
+            <label style="font-size: 0.65rem; font-weight: 800; color: #94a3b8;">VERIFIED BY</label>
+            <div style="font-weight: 700; font-size: 0.9rem; margin-top:5px;">
+              <i class="fas fa-shield-halved" style="color:var(--success-green); margin-right:5px;"></i>
+              IncodeVision Technologies
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+  } else {
+    resultArea.innerHTML = `
+      <p style="text-align:center; color:red; font-weight:600; margin-top:20px;">
+        ❌ No record found for this ID
+      </p>
+    `;
+  }
+}
+
+// 🔥 BUTTON CLICK
+function handleVerify() {
+  const id = document.getElementById('studentId').value.trim();
+  const resultArea = document.getElementById('resultArea');
+
+  if (!id) {
+    alert("Enter Student ID");
+    return;
+  }
+
+  // Loader
+  resultArea.innerHTML = `<div class="loader"></div>`;
+
+  setTimeout(() => {
+    renderResult(id);
+  }, 2000);
+}
+
+// 🔥 AUTO LOAD ON PAGE OPEN
+document.addEventListener("DOMContentLoaded", function () {
+  const defaultId = "ICV/APR26/55567";
+
+  document.getElementById('studentId').value = defaultId;
+
+  const resultArea = document.getElementById('resultArea');
+  resultArea.innerHTML = `<div class="loader"></div>`;
+
+  setTimeout(() => {
+    renderResult(defaultId);
+  }, 2000);
+});
+</script>
+  <style>
+  .footer {
+    background-color: #0b132b; /* Dark navy background */
+    color: #ffffff;
+    padding: 60px 5% 20px;
+    font-family: 'DM Sans', sans-serif;
+  }
+  .footer-container {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .footer-brand img { width: 150px; margin-bottom: 15px; }
+  .footer-brand p { color: #94a3b8; line-height: 1.6; font-size: 0.9rem; max-width: 350px; }
+  .social-icons { margin-top: 20px; display: flex; gap: 10px; }
+  .social-icons a { color: white; background: #1e293b; padding: 8px 12px; border-radius: 6px; text-decoration: none; }
+  
+  .footer-links h4, .footer-contact h4 { font-size: 0.9rem; letter-spacing: 1px; margin-bottom: 20px; color: #ffffff; }
+  .footer-links ul { list-style: none; padding: 0; }
+  .footer-links li { margin-bottom: 12px; color: #94a3b8; font-size: 0.9rem; cursor: pointer; }
+  
+  .footer-contact p { color: #94a3b8; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; }
+  
+  .footer-bottom { 
+    border-top: 1px solid #1e293b; 
+    margin-top: 40px; 
+    padding-top: 20px; 
+    text-align: left; 
+    font-size: 0.8rem; 
+    color: #475569;
+    max-width: 1200px;
+    margin: 40px auto 0;
+  }
+</style>
+
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <img src="images/logo1.png" alt="IncodeVision">
+      <p>Empowering the next generation of developers through hands-on internships, practical projects, and industry-focused training programs.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-links">
+      <h4>QUICK LINKS</h4>
+      <ul>
+        <li>Home</li>
+        <li>About Us</li>
+        <li>Internships</li>
+        <li>Verify Certificate</li>
+      </ul>
+    </div>
+
+    <div class="footer-contact">
+      <h4>CONTACT</h4>
+      <p><i class="fas fa-envelope"></i> contact@incodevision.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 IncodeVision. All rights reserved.
+  </div>
+</footer>
+</body>
+</html>
