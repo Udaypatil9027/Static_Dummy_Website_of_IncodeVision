@@ -1,1 +1,1 @@
-https://incodevision.netlify.app/verify
+https://incodevision.netlify.app/
